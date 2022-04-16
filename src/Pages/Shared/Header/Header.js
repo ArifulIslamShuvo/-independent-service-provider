@@ -3,10 +3,10 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 const Header = () => {
     return (
-        <div>
-            <Navbar collapseOnSelect expand="lg" bg="primary opacity-35" variant="dark">
+        <header>
+            <Navbar collapseOnSelect expand="lg" bg="info" sticky="top" variant="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Awesome Photegraphy</Navbar.Brand>
+                    <Navbar.Brand href="#home" className='fs-3'>Awesome Photegraphy</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
@@ -29,7 +29,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </header>
     );
 };
 
