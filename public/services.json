@@ -1,0 +1,25 @@
+[
+    {
+        "id": 1,
+        "name": "Couples",
+        "price": "300",
+        "description": "Weddings and engagements.",
+        "img": "https://i.ibb.co/YDh5SQ5/service-1.png"
+    },
+    {
+        "id": 2,
+        "name": "WHEEL ALIGNMENT",
+        "price": "200",
+        "description": "Best pics from my collections",
+        "img": "https://i.ibb.co/pdJ5V2D/service-2.png"
+    },
+    {
+        "id": 3,
+        "name": "Personal",
+        "price": "150",
+        "description": "Buy now my Presets Pack",
+        "img": "https://i.ibb.co/T4BrJ08/service-3.png"
+    }
+]
+
+
