@@ -13,7 +13,7 @@ const Service = ({service}) => {
             <p>Price: ${price}</p>
             <p><small>{description}</small></p>
             </div>
-            <button onClick={() => navigate("/Checkout")} className='btn btn-primary'>Checkout</button>
+            <button onClick={() => navigate("/Checkout")} className='btn btn-info mx-auto d-block w-50 '>Checkout</button>
         </div>
     );
 };

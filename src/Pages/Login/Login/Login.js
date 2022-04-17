@@ -1,12 +1,14 @@
 import React from "react";
 import "./AuthForm.css";
 import GoogleLogo from "../../../imagea/google.svg"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const [
     signInWithEmailAndPassword,
@@ -16,7 +18,7 @@ const Login = () => {
   ] = useSignInWithEmailAndPassword(auth);
 
   if (user) {
-    navigate('/');
+    navigate(from, { replace: true });
     console.log(user);
   }
  
