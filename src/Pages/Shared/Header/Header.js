@@ -22,9 +22,9 @@ const Header = () => {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">More deets</Nav.Link>
+                            <Nav.Link as={Link} to="/login">Log In</Nav.Link>
                             <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                                About Me
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
