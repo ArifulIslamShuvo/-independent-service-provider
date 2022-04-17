@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import GoogleLogo from "../../../imagea/google.svg";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -55,7 +56,8 @@ const Signup = () => {
         navigate('/home');
         console.log(user);
     }
-    //-------------------------------------------------------------------------
+    
+    //------------------------------------------------------------
     const handleLogout = event => {
         event.preventDefault();
 
@@ -63,9 +65,21 @@ const Signup = () => {
         const password = event.target.password.value;
 
         createUserWithEmailAndPassword(email, password);
-
-
     }
+    //---------------------------------------------------------------
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    if (error1) {
+          <div>
+            <p className="ext-danger">Error: {error1.message}</p>
+          </div>
+    }
+    if(user1){
+        navigate('/home')
+    }
+    if(loading || loading1){
+        return <Loading></Loading>
+    }
+
 
     return (
         <div className='auth-form-container '>
@@ -113,11 +127,12 @@ const Signup = () => {
                     <div className='line-right' />
                 </div>
                 <div className='input-wrapper'>
-                    <button className='google-auth'>
+                    <button className='google-auth' onClick={() => signInWithGoogle()}>
                         <img src={GoogleLogo} alt='' />
                         <p> Continue with Google </p>
                     </button>
                 </div>
+                {error1}
             </div>
         </div>
     );

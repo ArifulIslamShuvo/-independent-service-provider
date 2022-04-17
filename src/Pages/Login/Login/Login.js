@@ -2,13 +2,16 @@ import React from "react";
 import "./AuthForm.css";
 import GoogleLogo from "../../../imagea/google.svg"
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const Login = () => {
+  
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
 
   const [
     signInWithEmailAndPassword,
@@ -29,7 +32,22 @@ const Login = () => {
     const password = event.target.password.value;
 
     signInWithEmailAndPassword(email, password)
+    
   }
+
+  const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
+    if (error1) {
+          <div>
+            <p className="ext-danger">Error: {error1.message}</p>
+          </div>
+    }
+    if(user1){
+        navigate('/home')
+    }
+    if(loading || loading1){
+        return <Loading></Loading>
+    }
+  
 
 
   return (
@@ -63,7 +81,7 @@ const Login = () => {
           <div className='line-right' />
         </div>
         <div className='input-wrapper'>
-          <button className='google-auth'>
+          <button className='google-auth' onClick={() => signInWithGoogle()}>
             <img src={GoogleLogo} alt='' />
             <p className="mt-3"> Continue with Google </p>
           </button>
