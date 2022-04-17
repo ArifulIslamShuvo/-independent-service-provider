@@ -1,14 +1,13 @@
 import React from "react";
-import "./AuthForm.css";
-import GoogleLogo from "../../../imagea/google.svg"
 import { Navigate, useNavigate } from "react-router-dom";
+import GoogleLogo from "../../../imagea/google.svg"
 
-const Login = () => {
-  const navigate = useNavigate();
+const Signup = () => {
+    const navigate = useNavigate()
   return (
     <div className='auth-form-container '>
       <div className='auth-form'>
-        <h1 className="text-info m-4">Login</h1>
+        <h1 className="text-info m-4">Sign Up</h1>
         <form >
           <div className='input-field'>
             <label htmlFor='email'>Email</label>
@@ -21,14 +20,20 @@ const Login = () => {
             <div className='input-wrapper'>
               <input type='password' name='password' id='password' />
             </div>
+            <div className='input-field'>
+            <label htmlFor='confirm-password'>Confirm Password</label>
+            <div className='input-wrapper'>
+              <input type='password' name='confirmPassword'id='confirm-password'/>
+            </div>
+          </div>
           </div>
           <button type='submit' className='auth-form-submit'>
-            Login
+          Sign Up
           </button>
         </form>
         <p className='redirect'>
-          New to Awesome photography{" "}
-          <span onClick={() => navigate("/signup")}>Create New Account</span>
+        Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
         </p>
         <div className='horizontal-divider'>
           <div className='line-left' />
@@ -46,4 +51,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;
