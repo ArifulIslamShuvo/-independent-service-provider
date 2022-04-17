@@ -1,12 +1,12 @@
 import React from "react";
 import "./AuthForm.css";
 import GoogleLogo from "../../../imagea/google.svg"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
   return (
-    <div className='auth-form-container '>
+    <div className='container auth-form-container'>
       <div className='auth-form'>
         <h1 className="text-info m-4">Login</h1>
         <form >
@@ -38,7 +38,7 @@ const Login = () => {
         <div className='input-wrapper'>
           <button className='google-auth'>
             <img src={GoogleLogo} alt='' />
-            <p> Continue with Google </p>
+            <p className="mt-3"> Continue with Google </p>
           </button>
         </div>
       </div>

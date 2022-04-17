@@ -73,7 +73,7 @@
   border-radius: 5px;
   font-size: 15px;
   display: flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
   cursor: pointer;
   border: none;
@@ -83,10 +83,8 @@
 }
 
 .google-auth img {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  width:50px ;
+  height: 40px;
 }
 
 .google-auth p {
