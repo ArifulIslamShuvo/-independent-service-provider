@@ -5,7 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
-import toast from "react-hot-toast";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
@@ -49,7 +50,7 @@ const Login = () => {
   }
 
   //------------------handle-signInWithGoogle---------------------
-  
+
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
   let errorMessage;
   if (error1 || error) {
@@ -112,7 +113,9 @@ const Login = () => {
         </div>
         {errorMessage}
       </div>
+      <ToastContainer></ToastContainer>
     </div>
+    
     //----------end-form-container-----------------
   );
 };

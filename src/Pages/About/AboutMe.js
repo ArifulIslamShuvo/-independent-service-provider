@@ -9,7 +9,7 @@ const AboutMe = () => {
                 <h1 className='text-center text-info'>Md: Ariful Islam</h1>
             </div>
             <div className='p-4'>
-                <h5 className='text-white fs-5'>My goal is to be a good developer. For this I am practicing every day and learning something new every day, I will go through every step of the programming hero to reach my goal and I will practice very well what will be taught from the programming hero so that my skills become stronger. And I will go to my goal inshaAllah.</h5>
+                <p className='text-white text-center'>My goal is to be a good developer. For this I am practicing every day and learning something new every day, I will go through every step of the programming hero to reach my goal and I will practice very well what will be taught from the programming hero so that my skills become stronger. And I will go to my goal inshaAllah.</p>
             </div>
         </div>
     );
