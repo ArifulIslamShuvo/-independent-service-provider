@@ -1,3 +1,17 @@
+# Awesome Photography
+
+* This website has sign up facility
+* Sign-in has the advantage of signing out
+* This website has a protected page
+---
+- JSX
+- Bootstrap
+- React-Bootstrap
+- React Router
+- firebase
+- React Firebase Hooks
+ ---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
