@@ -13,7 +13,7 @@ const Signup = () => {
     const [confirmPassword, setConfirmPassword] = useState({ value: "", error: "" });
 
 
-    //----------------------------------------------
+    //------------handleEmail-------------------
 
     const handleEmail = (emailInput) => {
         if (/\S+@\S+\.\S+/.test(emailInput)) {
@@ -25,7 +25,7 @@ const Signup = () => {
         }
     }
 
-    //---------------------------------------------------------
+    //--------------handlePassword---------------------------
 
     const handlePassword = (passwordInput) => {
         if (passwordInput.length < 6) {
@@ -34,7 +34,7 @@ const Signup = () => {
             setPassword({ value: passwordInput, error: "" });
         }
     }
-    //-------------------------------------------------------------------
+    //----------------handlesetConfirmPassword-------------------------------
     const handlesetConfirmPassword = (confirmPasswordInput) => {
         if (confirmPasswordInput === password.value) {
             setConfirmPassword({ value: confirmPasswordInput, error: "" });
@@ -44,7 +44,7 @@ const Signup = () => {
         }
     }
     
-    //-------------------------------------------------------------------
+    //--------------------create User WithEmail And Password---------------------------
     const [
         createUserWithEmailAndPassword,
         user,
@@ -56,8 +56,7 @@ const Signup = () => {
         navigate('/home');
         console.log(user);
     }
-    
-    //------------------------------------------------------------
+
     const handleLogout = event => {
         event.preventDefault();
 
@@ -66,7 +65,7 @@ const Signup = () => {
 
         createUserWithEmailAndPassword(email, password);
     }
-    //---------------------------------------------------------------
+    //-----------------handle-signInWithGoogle------------------------
     const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
     let errorMessage;
     if (error1 || error) {
@@ -84,6 +83,7 @@ const Signup = () => {
 
 
     return (
+        //------------start-form-container---------------
         <div className='auth-form-container '>
             <div className='auth-form'>
                 <h1 className="text-info m-4">Sign Up</h1>
@@ -137,6 +137,7 @@ const Signup = () => {
                 {errorMessage}
             </div>
         </div>
+    //-------------end-form-container----------------
     );
 };
 

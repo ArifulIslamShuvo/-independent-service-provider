@@ -17,18 +17,18 @@ const Header = () => {
         <header>
             <Navbar collapseOnSelect expand="lg" bg="info" sticky="top" variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to="/" className='fs-3'>Awesome Photography</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/" className='fs-3'style={{ color: 'gold' }}>Awesome  Photography</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
-                            <Nav.Link href="services">Services</Nav.Link>
-                            <Nav.Link href="blogs">Blogs</Nav.Link>
-                            <Nav.Link as={Link} to="about">About Me</Nav.Link>
+                        <Nav className="mx-auto">
+                            <Nav.Link className='fs-5 text-white' href="services">Services</Nav.Link>
+                            <Nav.Link className='fs-5 text-white' href="blog">Blog</Nav.Link>
+                            <Nav.Link className='fs-5 text-white'as={Link} to="about">About Me</Nav.Link>
                         </Nav>
                         <Nav>
 
                             {user?  <Nav.Link onClick={handleLogout} as={Link} to="login">Logout</Nav.Link>
-                            : <Nav.Link as={Link} to="login">Login</Nav.Link>}
+                            : <Nav.Link as={Link} to="login" className='fs-4 text-white'>Login</Nav.Link>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

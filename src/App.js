@@ -12,6 +12,7 @@ import Signup from './Pages/Login/Signup/Signup';
 import NotFound from './Pages/NotFound/NotFound';
 import RequireAuth from './Pages/Login/RequireAuth/RequireAuth';
 import AboutMe from './Pages/About/AboutMe';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/about' element={<AboutMe></AboutMe>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>
