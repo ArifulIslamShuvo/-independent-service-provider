@@ -36,11 +36,13 @@ const Login = () => {
   }
 
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
-    if (error1) {
-          <div>
-            <p className="ext-danger">Error: {error1.message}</p>
-          </div>
-    }
+  let errorMessage;
+  if (error1 || error) {
+        errorMessage=<div>
+          <p className="text-danger">Error: {error1.message}</p>
+        </div>
+        console.log(errorMessage);
+  }
     if(user1){
         navigate('/home')
     }
@@ -86,6 +88,7 @@ const Login = () => {
             <p className="mt-3"> Continue with Google </p>
           </button>
         </div>
+        {errorMessage}
       </div>
     </div>
   );

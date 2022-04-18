@@ -68,10 +68,12 @@ const Signup = () => {
     }
     //---------------------------------------------------------------
     const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
-    if (error1) {
-          <div>
-            <p className="ext-danger">Error: {error1.message}</p>
+    let errorMessage;
+    if (error1 || error) {
+          errorMessage=<div>
+            <p className="text-danger">Error: {error1.message}</p>
           </div>
+          console.log(errorMessage);
     }
     if(user1){
         navigate('/home')
@@ -132,7 +134,7 @@ const Signup = () => {
                         <p> Continue with Google </p>
                     </button>
                 </div>
-                {error1}
+                {errorMessage}
             </div>
         </div>
     );
