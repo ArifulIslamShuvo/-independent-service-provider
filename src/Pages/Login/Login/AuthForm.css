@@ -100,6 +100,7 @@
   text-decoration: underline;
   cursor: pointer;
   color: #0dcaf0;
+  text-decoration: none;
 }
 
 .horizontal-divider {

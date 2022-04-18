@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AuthForm.css";
 import GoogleLogo from "../../../imagea/google.svg"
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  
+
+  //----------handle-reset-Password---------
+    const [resetEmail, setEmail] = useState('');
+    const [sendPasswordResetEmail, sending, ] = useSendPasswordResetEmail(auth);
+   if (resetEmail) {
+            toast('Sent email');
+        }
+        else{
+            toast('please enter your email address');
+        }
+
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-
+  //---------handle-sigin- use-React Firebase Hooks-----
   const [
     signInWithEmailAndPassword,
     user,
@@ -25,6 +37,7 @@ const Login = () => {
     console.log(user);
   }
  
+  //------------handle-Logout-Input---------------------
 
   const handleLogout = event => {
     event.preventDefault();
@@ -35,6 +48,8 @@ const Login = () => {
     
   }
 
+  //------------------handle-signInWithGoogle---------------------
+  
   const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
   let errorMessage;
   if (error1 || error) {
@@ -61,7 +76,7 @@ const Login = () => {
           <div className='input-field'>
             <label htmlFor='email'>Email</label>
             <div className='input-wrapper'>
-              <input type='text' name='email' id='email' />
+              <input type='text' name='email' id='email' onChange={(e) => setEmail(e.target.value)}/>
             </div>
           </div>
           <div className='input-field'>
@@ -74,9 +89,15 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className='redirect'>
+        <p className=' redirect'>
           New to Awesome photography{" "}
           <span onClick={() => navigate("/signup")}>Create New Account</span>
+        </p>
+        <p className=' redirect'>
+          Forget Password {" "}
+          <span onClick={async () => {await sendPasswordResetEmail(resetEmail)
+          
+        }}>Reset Password</span>
         </p>
         <div className='horizontal-divider'>
           <div className='line-left' />
